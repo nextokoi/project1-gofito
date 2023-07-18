@@ -1,4 +1,4 @@
-function Gofito(x, y, parent){
+function Gofito(x, y, parent, timerJump){
     let self = this
     this.x = x
     this.y = y
@@ -20,7 +20,7 @@ function Gofito(x, y, parent){
             self.y -= self.impulse
             self.impulse *= self.gravity
             self.sprite.style.top = self.y + 'px';
-        } else if (self.y <= suelo) {
+        } else if (self.y <= self.floor) {
             self.y += 30
             console.log ("Estoy bajando!")
             self.sprite.style.top = self.y + 'px';

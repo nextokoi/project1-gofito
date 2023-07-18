@@ -3,7 +3,9 @@ import { Gofito } from './gofito.js'
 
 const mainContainer = document.querySelector('main')
 const gofito = new Gofito(50, 210, mainContainer)
-gofito.insertGofito()
+function start() {
+    gofito.insertGofito()
+}
 console.log(Gofito)
 //Vamos a hacer que Gofito salte
 
@@ -12,8 +14,10 @@ window.addEventListener('keydown', function (e) {
         console.log("Estoy saltando!!")
         console.log(gofito.y);
         gofito.jumping = true;
-        gofito.timerJump = setInterval(gofito.jump, 300);
+        gofito.timerJump = setInterval(gofito.jump, 100);
     }
 }
 )
+
+start()
 
