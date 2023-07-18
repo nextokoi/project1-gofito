@@ -21,6 +21,7 @@ var timerJump;
 window.addEventListener('keydown', function (e) {
     if (e.key === ' ' && !jumping) {
         console.log("Estoy saltando!!")
+        console.log(gofitoY);
         jumping = true;
         timerJump = setInterval(jump, 300);
     }
@@ -33,14 +34,14 @@ function jump() {
         gofitoY -= impulso
         impulso *= gravedad
         gofito.style.top = gofitoY + 'px';
-    } else if (gofitoY < suelo) {
+    } else if (gofitoY <= suelo) {
         gofitoY += 30
         console.log ("Estoy bajando!")
         gofito.style.top = gofitoY + 'px';
-        
     } else {
         impulso = 100
         gravedad = 0.3
+        gofitoY = suelo
         clearInterval(timerJump)
         jumping = !jumping
     }
