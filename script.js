@@ -1,13 +1,14 @@
 import { Gofito } from './gofito.js'
-//Declaramos todas las variables en el scope global
+import { Obstacles } from './obstacles.js'
 
 const mainContainer = document.querySelector('main')
 const gofito = new Gofito(50, 210, mainContainer)
+const obstacles = new Obstacles(700, 220, mainContainer, gofito)
 function start() {
     gofito.insertGofito()
+    obstacles.insertObstacles()
 }
 console.log(Gofito)
-//Vamos a hacer que Gofito salte
 
 window.addEventListener('keydown', function (e) {
     if (e.key === ' ' && !gofito.jumping) {
