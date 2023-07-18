@@ -1,7 +1,7 @@
 main{
     position: relative;
     width:920px;
-    height: 280px;
+    height: 380px;
     background-color: #a9a5a5;
 }
 
@@ -9,7 +9,7 @@ main{
     position: absolute;
     width: 84px;
     height: 84px;
-    top: 170px;
+    top: 210px;
     left: 50px; 
     background-color: chocolate;
 }
@@ -18,7 +18,7 @@ main{
     position: absolute;
     width: 74px;
     height: 74px;
-    top: 180px;
+    top: 220px;
     left: 700px;
     background-color:darkseagreen;
 }

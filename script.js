@@ -3,15 +3,15 @@
 const mainContainer = document.querySelector('main')
 const gofito = document.querySelector('#gofito')
 var impulso = 100;
-var gravedad = 0.5;
+var gravedad = 0.3;
 
 
 //Cuidado modificar gofitoY si cambiamos el suelo
-var suelo = 170;
+var suelo = 210;
 var gofitoY = suelo;
 
 var jumping = false;
-var direction = 1;
+//var direction = 1;
 
 var timerJump;
 
@@ -29,19 +29,22 @@ window.addEventListener('keydown', function (e) {
 
 function jump() {
 
-    if (gofitoY < suelo || gofitoY > 70) {
-        direction *= -1;
-    }
-    console.log(gofitoY);
-    gofitoY += impulso * direction;
-    gofito.style.top = gofitoY + 'px';
-
-    if (gofitoY >= suelo) {
+    if (jumping && impulso >= 0.25) {
+        gofitoY -= impulso
+        impulso *= gravedad
+        gofito.style.top = gofitoY + 'px';
+    } else if (gofitoY < suelo) {
+        gofitoY += 30
+        console.log ("Estoy bajando!")
+        gofito.style.top = gofitoY + 'px';
+        
+    } else {
+        impulso = 100
+        gravedad = 0.3
         clearInterval(timerJump)
-        jumping = false;
-        console.log("Ya no estoy saltando")
+        jumping = !jumping
     }
-
+   
 
 }
 
