@@ -1,8 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 main{
     position: relative;
+    margin: 20px auto;
     width:920px;
     height: 380px;
     background-color: #a9a5a5;
+    overflow: hidden;
 }
 
 #gofito{

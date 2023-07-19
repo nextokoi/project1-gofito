@@ -1,24 +1,28 @@
 import { Gofito } from './gofito.js'
-import { Obstacles } from './obstacles.js'
+import { Obstacle } from './obstacles.js'
 
 const mainContainer = document.querySelector('main')
 const gofito = new Gofito(50, 210, mainContainer)
-const obstacles = new Obstacles(700, 220, mainContainer, gofito)
+const obstacles = []
+let obstacleTimer
+
 function start() {
     gofito.insertGofito()
-    obstacles.insertObstacles()
+    obstacleTimer = setInterval(createObstacle, 2000)
 }
-console.log(Gofito)
+
+function createObstacle(){
+    const obstacle = new Obstacle(920, 220, mainContainer, obstacles)
+    obstacles.push(obstacle)
+    obstacle.insertObstacle()
+}
 
 window.addEventListener('keydown', function (e) {
     if (e.key === ' ' && !gofito.jumping) {
-        console.log("Estoy saltando!!")
-        console.log(gofito.y);
         gofito.jumping = true;
         gofito.timerJump = setInterval(gofito.jump, 100);
     }
-}
-)
+})
 
 start()
 
