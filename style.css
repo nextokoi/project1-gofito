@@ -46,6 +46,10 @@
 
 /* Main screen */
 
+.main-title{
+    margin-top: 100px;
+}
+
 .wrapper{
     position: relative;
     display: flex;
@@ -55,6 +59,7 @@
     width: 920px;
     height: 480px;
     background-color: #a9a5a5;
+    font-family: 'Tektur', cursive;
 }
 
 .main-screen{
