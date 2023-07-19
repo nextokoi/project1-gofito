@@ -12,7 +12,7 @@ function start() {
 }
 
 function createObstacle(){
-    const obstacle = new Obstacle(920, 390, mainContainer, obstacles)
+    const obstacle = new Obstacle(920, 390, mainContainer, obstacles, gofito)
     obstacles.push(obstacle)
     obstacle.insertObstacle()
 }

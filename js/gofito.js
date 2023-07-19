@@ -2,6 +2,8 @@ function Gofito(x, y, parent, timerJump){
     let self = this
     this.x = x
     this.y = y
+    this.width= 84
+    this.height= 84;
     this.floor = 380
     this.timerJump = timerJump
     this.impulse = 120
