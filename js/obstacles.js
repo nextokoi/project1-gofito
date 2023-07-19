@@ -40,7 +40,7 @@ function Obstacle(x, y, parent, array, gofito) {
             this.y <= gofito.y + gofito.height &&
             this.y + this.height >= gofito.y
         ) {
-            alert('GAME OVER - Save Gofito')
+            //alert('GAME OVER - Save Gofito')
         }
     }
 

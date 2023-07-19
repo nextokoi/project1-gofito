@@ -1,10 +1,12 @@
+/* Index */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-main {
+.game-board {
     background-image: url('./img/roque.webp');
     background-size: cover;
     background-position: center;
@@ -40,4 +42,39 @@ main {
     left: 0;
     background: url(./img/suelo.png)repeat-x 0px 0px;
     background-size: 50% 42px;
+}
+
+/* Main screen */
+
+.wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 920px;
+    height: 480px;
+    background-color: #a9a5a5;
+}
+
+.main-screen{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.main-screen > button{
+    padding: 15px;
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main-screen > button:hover{
+    background-color: #716b6b;
+    color: white;
 }
