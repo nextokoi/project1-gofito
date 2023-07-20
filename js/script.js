@@ -1,3 +1,4 @@
+
 import { Gofito } from './gofito.js'
 import { Obstacle } from './obstacles.js'
 
@@ -25,4 +26,3 @@ window.addEventListener('keydown', function (e) {
 })
 
 start()
-

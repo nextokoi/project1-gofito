@@ -5,8 +5,8 @@ startGame.addEventListener("click", function(){
     window.location='./../index.html';
 })
 
-const restartGameOver = document.getElementById('restart')
+// const restartGameOver = document.getElementById('restart')
 
-restartGameOver.addEventListener("click", function(){
-    window.location='./../index.html';
-})
+// restartGameOver.addEventListener("click", function(){
+//     window.location='./../index.html';
+// })
