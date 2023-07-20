@@ -17,6 +17,7 @@ function Obstacle(x, y, parent, array, gofito) {
     this.move = function () {
         self.checkCollision()
         self.x -= self.speed
+        console.log('me muevo')
         self.sprite.style.left = self.x + "px";
 
         if (self.x <= -75) {
@@ -41,7 +42,7 @@ function Obstacle(x, y, parent, array, gofito) {
             this.y + this.height >= gofito.y
         ) {
             //alert('GAME OVER - Save Gofito')
-            window.location='./../pages/game-over.html';
+            //window.location='./../pages/game-over.html';
         }
     }
 

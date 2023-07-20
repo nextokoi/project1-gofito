@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;800&display=swap" rel="stylesheet">
     <script src="./js/script.js" type="module" defer></script>
     <title>Gofito</title>
 </head>
 <body>
-    <main class="game-board">
+    <div id="screen-1" class="wrapper">
+        <header class="main-title">
+            <h1>GOFITO</h1>
+        </header>
+        <main class="main-screen">
+            <button id="start-game">Start game</button>
+            <button>Load game</button>
+            <button>Exit</button>
+        </main>
+    </div>
+    <div id="screen-2" class="game-board hidden">
         <div id="floor">
         <img src="./img/floor.png" alt="floor">
         </div>
-    </main>
+    </div>
+    <div id="screen-3" class="wrapper hidden">
+        <header class="main-title">
+            <h1>GAME OVER</h1>
+        </header>
+        <main class="main-screen">
+            <button id="restart">Restart</button>
+
+        </main>
+    </div>
 </body>
 </html>

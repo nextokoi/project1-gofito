@@ -40,7 +40,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background: url(./img/suelo.png)repeat-x 0px 0px;
+    background: url(./img/floor.png)repeat-x 0px 0px;
     background-size: 50% 42px;
 }
 
@@ -83,3 +83,7 @@
     background-color: #716b6b;
     color: white;
 }
+
+ .hidden{
+    display: none;
+} 
