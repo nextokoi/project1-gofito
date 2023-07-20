@@ -1,3 +1,4 @@
+
 import { Gofito } from './gofito.js'
 import { Obstacle } from './obstacles.js'
 
