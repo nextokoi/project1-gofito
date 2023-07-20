@@ -41,8 +41,15 @@ function Obstacle(x, y, parent, array, gofito) {
             this.y <= gofito.y + gofito.height &&
             this.y + this.height >= gofito.y
         ) {
-            //alert('GAME OVER - Save Gofito')
-            //window.location='./../pages/game-over.html';
+
+            gofito.isDead = true
+            // const screen2 = document.getElementById('screen-2');
+            // const screen3 = document.getElementById('screen-3');
+
+            // screen2.setAttribute('class', 'hidden')
+            // screen3.setAttribute('class', 'wrapper')
+
+                     
         }
     }
 
