@@ -28,7 +28,7 @@ function Obstacle(x, y, parent, array, gofito) {
     this.removeObstacle = function (index) {
         clearInterval(this.timerId) //Cambios
         if (this.x < -75) {
-            array.shift()
+            array.shift() 
         } else {
             array.splice(index, 1)
         }
