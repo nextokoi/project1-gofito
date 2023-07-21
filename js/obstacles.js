@@ -32,8 +32,11 @@ function Obstacle(x, y, parent, array, gofito) {
         } else {
             array.splice(index, 1)
         }
+
         parent.removeChild(this.sprite)
+
     }
+
 
     this.checkCollision = function () {
         if (this.x <= gofito.x + gofito.width &&
@@ -41,7 +44,7 @@ function Obstacle(x, y, parent, array, gofito) {
             this.y <= gofito.y + gofito.height &&
             this.y + this.height >= gofito.y
         ) {
-            gofito.isDead = true            
+            gofito.isDead = true
         }
     }
 
