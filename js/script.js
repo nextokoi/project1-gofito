@@ -12,6 +12,7 @@ const restartGame = document.getElementById('restart')
 const mainContainer = document.querySelector('.game-board')
 const gofito = new Gofito(50, 380, mainContainer)
 const obstacles = []
+let counter = 0
 
 let obstacleTimer
 let gofitoTimer
@@ -51,6 +52,7 @@ function gofitoJumping() {
             clearInterval(obstacles[i].timerId);
             obstacles[i].removeObstacle(i) //Cambios
         }
+        counter = 0
         screen2.setAttribute('class', 'hidden')
         screen3.setAttribute('class', 'wrapper')
     }
@@ -60,6 +62,8 @@ function createObstacle() {
     const obstacle = new Obstacle(920, 390, mainContainer, obstacles, gofito)
     obstacles.push(obstacle)
     obstacle.insertObstacle()
+    counter ++
+    console.log(counter)
 }
 
 
