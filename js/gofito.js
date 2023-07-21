@@ -1,11 +1,10 @@
-function Gofito(x, y, parent, timerJump){
+function Gofito(x, y, parent){
     let self = this
     this.x = x
     this.y = y
     this.width= 84
     this.height= 84;
     this.floor = 380
-    this.timerJump = timerJump
     this.impulse = 120
     this.gravity = 0.3
     this.isDead= false
@@ -19,7 +18,7 @@ function Gofito(x, y, parent, timerJump){
         parent.appendChild(this.sprite)
     }
     this.jump = function() {
-        if (self.jumping && self.impulse >= self.gravity) {
+        if (self.impulse >= self.gravity) {
             self.y -= self.impulse
             self.impulse *= self.gravity
             self.y = Math.round(self.y)
@@ -30,10 +29,9 @@ function Gofito(x, y, parent, timerJump){
         } else {
             self.y = self.floor
             self.sprite.style.top = self.y + 'px';
+            self.jumping = false;
             self.impulse = 120
             self.gravity = 0.3
-            clearInterval(self.timerJump)
-            self.jumping = !self.jumping
         }   
     }
 }

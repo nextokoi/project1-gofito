@@ -26,13 +26,13 @@ function Obstacle(x, y, parent, array, gofito) {
     }
 
     this.removeObstacle = function (index) {
+        clearInterval(this.timerId) //Cambios
         if (this.x < -75) {
             array.shift()
         } else {
             array.splice(index, 1)
         }
         parent.removeChild(this.sprite)
-        clearInterval(this.timerId)
     }
 
     this.checkCollision = function () {
@@ -41,15 +41,7 @@ function Obstacle(x, y, parent, array, gofito) {
             this.y <= gofito.y + gofito.height &&
             this.y + this.height >= gofito.y
         ) {
-
-            gofito.isDead = true
-            // const screen2 = document.getElementById('screen-2');
-            // const screen3 = document.getElementById('screen-3');
-
-            // screen2.setAttribute('class', 'hidden')
-            // screen3.setAttribute('class', 'wrapper')
-
-                     
+            gofito.isDead = true            
         }
     }
 
