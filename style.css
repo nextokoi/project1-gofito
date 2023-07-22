@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Tektur', cursive;
 }
 
 .game-board {
@@ -20,6 +21,8 @@
 
 #gofito {
     /* background-image: url('./img/gofito-provisional.png');
+    background-size: contain; */
+/*     background-image: url('./img/gofito-walking.gif');
     background-size: contain; */
     width: 84px;
     height: 84px;
@@ -40,7 +43,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background: url(./img/floor.png)repeat-x 0px 0px;
+    background: url('./img/floor.png')repeat-x 0px 0px;
     background-size: 50% 42px;
 }
 
@@ -66,7 +69,6 @@
     width: 920px;
     height: 480px;
     background-color: #a9a5a5;
-    font-family: 'Tektur', cursive;
 }
 
 .main-screen{
@@ -79,18 +81,29 @@
     margin-bottom: 20px;
 }
 
-.main-screen > button{
+button{
     padding: 15px;
     width: 200px;
     border-radius: 10px;
     cursor: pointer;
 }
 
-.main-screen > button:hover{
+button:hover{
     background-color: #716b6b;
     color: white;
 }
 
  .hidden{
     display: none;
+}
+
+/* Win screen */
+
+#screen-4 {
+    display: flex;
+    justify-content:space-evenly;
+}
+
+#screen-4 > header{
+    margin-top: 30px;
 }
