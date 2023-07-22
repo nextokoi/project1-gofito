@@ -19,7 +19,7 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
         parent.appendChild(this.sprite)
     }
 
-    this.jump = function() { // Function of Gofito's movement : jumping
+    this.jump = function() { // Function of Gofito's movement: jumping
 
         if (self.impulse >= self.gravity) { //Check that Gofito's is moving up (jumping)
             self.y -= self.impulse //Decrease 'y' position to see Gofito moving up
