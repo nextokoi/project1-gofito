@@ -1,5 +1,5 @@
-function Gofito(x, y, parent){
-    let self = this
+function Gofito(x, y, parent){ //We create the constructor function of Gofito
+    let self = this //First of all...
     this.x = x
     this.y = y
     this.width= 84
@@ -10,24 +10,28 @@ function Gofito(x, y, parent){
     this.isDead= false
     this.win =false
     this.jumping = false
-    this.sprite = document.createElement('div')
+    this.sprite = document.createElement('div') //This element represents Gofito in the DOM
 
-    this.insertGofito = function() {
+    this.insertGofito = function() { //Function to insert Gofito in the DOM
         this.sprite.setAttribute('id', 'gofito')
         this.sprite.style.left = this.x + 'px'
         this.sprite.style.top = this.y + 'px'
         parent.appendChild(this.sprite)
     }
-    this.jump = function() {
-        if (self.impulse >= self.gravity) {
-            self.y -= self.impulse
-            self.impulse *= self.gravity
+
+    this.jump = function() { // Function of Gofito's movement : jumping
+
+        if (self.impulse >= self.gravity) { //Check that Gofito's is moving up (jumping)
+            self.y -= self.impulse //Decrease 'y' position to see Gofito moving up
+            self.impulse *= self.gravity // We multiply by gravity to decrease the impulse at each iteration
             self.y = Math.round(self.y)
-            self.sprite.style.top = self.y + 'px';
-        } else if (self.y <= self.floor) {
-            self.y += 35
-            self.sprite.style.top = self.y + 'px';
-        } else {
+            self.sprite.style.top = self.y + 'px'; //Update the position on the screen
+
+        } else if (self.y <= self.floor) { //Gofito is moving down. Use self.floor to check that does not go lower than the floor
+            self.y += 35 //Icrease 'y' position to see Gofito going down
+            self.sprite.style.top = self.y + 'px'; //Update the position on the screen
+
+        } else { //End of the jump, we reset to the initial position.
             self.y = self.floor
             self.sprite.style.top = self.y + 'px';
             self.jumping = false;
