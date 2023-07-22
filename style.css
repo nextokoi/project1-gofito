@@ -44,6 +44,13 @@
     background-size: 50% 42px;
 }
 
+.pintadera {
+    position: absolute;
+    width: 74px;
+    height: 74px;
+    background-color: rgb(224, 91, 242);
+}
+
 /* Main screen */
 
 .main-title{

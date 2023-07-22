@@ -1,6 +1,6 @@
 import { Gofito } from './gofito.js'
 import { Obstacle } from './obstacles.js'
-
+import { Pintadera } from './pintadera.js'
 
 const screen1 = document.getElementById('screen-1');
 const screen2 = document.getElementById('screen-2');
@@ -14,9 +14,10 @@ const gofito = new Gofito(50, 380, mainContainer)
 const obstacles = []
 let obstacleCounter = 0
 
-let winCondition = 5
+let winCondition = 3
 
 let obstacleTimer
+let pintaderaTimer
 let gofitoTimer
 
 startGame.addEventListener('click', function () {
@@ -40,6 +41,7 @@ function start() {
     });
     gofitoTimer = setInterval(gofitoJumping, 100)
     obstacleTimer = setInterval(createObstacle, 2000)
+    pintaderaTimer = setInterval(createPintadera, 2000)
 }
 
 function gofitoJumping() {
@@ -58,36 +60,31 @@ function gofitoJumping() {
         screen2.setAttribute('class', 'hidden')
         screen3.setAttribute('class', 'wrapper')
     }
-    
+
 
 }
 
 function createObstacle() {
-    const obstacle = new Obstacle(920, 390, mainContainer, obstacles, gofito)
-    obstacles.push(obstacle)
-    obstacle.insertObstacle()
+    if (obstacleCounter < winCondition) {
+        const obstacle = new Obstacle(920, 390, mainContainer, obstacles, gofito)
+        obstacles.push(obstacle)
+        obstacle.insertObstacle()
 
-    obstacleCounter ++
-    console.log(obstacleCounter)
-    gofitoWin()
+        obstacleCounter++
+        console.log(obstacleCounter)
+    }
+
 }
 
-//Conditions and function to win
+function createPintadera() {
 
-function gofitoWin(){
+    if (obstacleCounter === winCondition) {
+        const pintadera = new Pintadera(1020, 350, mainContainer, gofito)
+        pintadera.insertPintadera()
+        console.log(pintadera)
 
-    if(obstacleCounter === winCondition){
-
-        clearInterval(gofitoTimer)
-        clearInterval(obstacleTimer)
-        for (let i = 0; i < obstacles.length; i++) {
-            clearInterval(obstacles[i].timerId);
-            obstacles[i].removeObstacle(i) //Cambios
-        }
-        obstacleCounter = 0
-        alert ('Gofito has won!!') //Quitar esto y poner la pantalla de ganar
-        // screen2.setAttribute('class', 'hidden')
-        // screen4.setAttribute('class', 'wrapper')
+        clearInterval(pintaderaTimer)
     }
+
 }
 

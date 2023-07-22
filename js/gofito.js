@@ -8,6 +8,7 @@ function Gofito(x, y, parent){
     this.impulse = 120
     this.gravity = 0.3
     this.isDead= false
+    this.win =false
     this.jumping = false
     this.sprite = document.createElement('div')
 

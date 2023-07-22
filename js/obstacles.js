@@ -17,7 +17,6 @@ function Obstacle(x, y, parent, array, gofito) {
     this.move = function () {
         self.checkCollision()
         self.x -= self.speed
-        console.log('me muevo')
         self.sprite.style.left = self.x + "px";
 
         if (self.x <= -75) {
