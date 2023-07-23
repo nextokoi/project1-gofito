@@ -1,3 +1,8 @@
+// INSERTAR AUDIO
+// var nombreVariable = new Audio('ruta del audio')
+// Por ejemplo:
+// var shoot = new Audio ('assets/sounds/shoot.mp3)
+
 //Import the classes Gofito, Obstacle and Pintadera
 import { Gofito } from './gofito.js'
 import { Obstacle } from './obstacles.js'
@@ -7,12 +12,13 @@ import { Pintadera } from './pintadera.js'
 const screen1 = document.getElementById('screen-1');
 const screen2 = document.getElementById('screen-2');
 const screen3 = document.getElementById('screen-3');
+const screen4 = document.getElementById('screen-4');
 const startGame = document.getElementById('start-game')
 const restartGame = document.getElementById('restart')
 const mainContainer = document.querySelector('.game-board')
 
 //Create gofito
-const gofito = new Gofito(50, 380, mainContainer)
+const gofito = new Gofito(50, 364, mainContainer)
 
 //We declare variables and constants in the global scope
 const obstacles = []
@@ -78,7 +84,7 @@ function createObstacle() { //Executed by intervales in the start function
 
 function createPintadera() {
     if (obstacleCounter === winCondition) {//When number of obstacles is equal to winCondition we create and insert the final door
-        const pintadera = new Pintadera(1020, 350, mainContainer, gofito) 
+        const pintadera = new Pintadera(1020, 330, mainContainer, gofito) 
         pintadera.insertPintadera()
         console.log(pintadera)
 

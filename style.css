@@ -20,14 +20,12 @@
 }
 
 #gofito {
-    /* background-image: url('./img/gofito-provisional.png');
-    background-size: contain; */
-/*     background-image: url('./img/gofito-walking.gif');
-    background-size: contain; */
-    width: 84px;
-    height: 84px;
+    background-image: url('./img/gofito-walking.gif');
+    background-size: contain;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    background-color: chocolate;
+    /* background-color: chocolate; */
 }
 
 .aloe {
@@ -49,18 +47,20 @@
 
 .pintadera {
     position: absolute;
-    width: 74px;
-    height: 74px;
-    background-color: rgb(224, 91, 242);
+    background-image: url('./img/pintadera.gif');
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    /* background-color: rgb(224, 91, 242); */
 }
 
 /* Main screen */
 
-.main-title{
+.main-title {
     margin-top: 100px;
 }
 
-.wrapper{
+.wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -71,7 +71,7 @@
     background-color: #a9a5a5;
 }
 
-.main-screen{
+.main-screen {
     position: absolute;
     bottom: 0;
     display: flex;
@@ -81,29 +81,31 @@
     margin-bottom: 20px;
 }
 
-button{
+button {
     padding: 15px;
     width: 200px;
     border-radius: 10px;
     cursor: pointer;
 }
 
-button:hover{
+button:hover {
     background-color: #716b6b;
     color: white;
 }
 
- .hidden{
+.hidden {
     display: none;
 }
 
 /* Win screen */
 
-#screen-4 {
+/* He modificado esto del css porque entraba en conflicto la id con hidden */
+
+#screen-4.wrapper:not(.hidden) {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
 }
 
-#screen-4 > header{
+#screen-4.wrapper:not(.hidden) header {
     margin-top: 30px;
 }

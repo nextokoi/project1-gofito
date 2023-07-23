@@ -2,9 +2,9 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
     let self = this //First of all...
     this.x = x
     this.y = y
-    this.width= 84
-    this.height= 84;
-    this.floor = 380
+    this.width= 100
+    this.height= 100;
+    this.floor = 364
     this.impulse = 120
     this.gravity = 0.3
     this.isDead= false

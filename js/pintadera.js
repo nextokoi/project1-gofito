@@ -2,12 +2,12 @@ function Pintadera(x, y, parent, gofito) { //We create the constructor function 
     let self = this //First of all...
     this.x = x
     this.y = y
-    this.width = 74
-    this.height = 74
+    this.width = 100
+    this.height = 100
     this.speed = 18
     this.sprite = document.createElement('div') //This element represents the 'pintadera' in the DOM
 
-    this.insertPintadera = function () { //Function to inster the 'pintadera'
+    this.insertPintadera = function () { //Function to instert the 'pintadera'
         self.sprite.classList.add('pintadera')
         self.sprite.style.left = self.x + "px"
         self.sprite.style.top = self.y + "px"
