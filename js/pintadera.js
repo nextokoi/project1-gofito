@@ -28,7 +28,7 @@ function Pintadera(x, y, parent, gofito) { //We create the constructor function 
             self.y + self.height >= gofito.y
         ) {
             gofito.win = true
-            alert('Gofito has won!!') //Quitar esto y poner la pantalla de ganar
+            // alert('Gofito has won!!') 
             // screen2.setAttribute('class', 'hidden')
             // screen4.setAttribute('class', 'wrapper')
         }

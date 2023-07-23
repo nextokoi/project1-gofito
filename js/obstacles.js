@@ -2,8 +2,8 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
     let self = this //First of all...
     this.x = x
     this.y = y
-    this.width = 74
-    this.height = 74
+    this.width = 70
+    this.height = 70
     this.speed = 30
     this.sprite = document.createElement('div') //This element represents the obstacles in the DOM
 

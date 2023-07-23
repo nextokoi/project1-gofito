@@ -37,25 +37,38 @@ startGame.addEventListener('click', function () { //When we click START GAME...
 restartGame.addEventListener('click', function () { //When we click RESTART...
     screen3.setAttribute('class', 'hidden')
     screen2.setAttribute('class', 'game-board')
-    gofito.isDead = false; 
+    gofito.isDead = false;
     start()
 })
 
 function start() { //Sets the start of the game
-    gofito.insertGofito() 
+    gofito.insertGofito()
 
     document.addEventListener('keydown', function (e) { //Event listener, so Gofito can jump when we keydown space
         if (e.key === ' ') gofito.jumping = true;
     });
 
-    gofitoTimer = setInterval(gofitoJumping, 100)
+    gofitoTimer = setInterval(gofitoCheckGameStatus, 100)
     obstacleTimer = setInterval(createObstacle, 2000)
     pintaderaTimer = setInterval(createPintadera, 2000)
 }
 
-function gofitoJumping() {
+function gofitoCheckGameStatus() {
     if (gofito.jumping) { //When gofito.jumping = true, executes the jump function
         gofito.jump();
+    }
+
+    if (gofito.win === true) { //WIN - clear intervales and obstacles
+        gofito.isDead = false
+        clearInterval(gofitoTimer)
+        clearInterval(obstacleTimer)
+        for (let i = 0; i < obstacles.length; i++) {
+            clearInterval(obstacles[i].timerId);
+            obstacles[i].removeObstacle(i)
+        }
+        obstacleCounter = 0 //Restart the counter
+        screen2.setAttribute('class', 'hidden')
+        screen4.setAttribute('class', 'wrapper')
     }
 
     if (gofito.isDead) { //GAME OVER - clear intervales and obstacles
@@ -63,7 +76,7 @@ function gofitoJumping() {
         clearInterval(obstacleTimer)
         for (let i = 0; i < obstacles.length; i++) {
             clearInterval(obstacles[i].timerId);
-            obstacles[i].removeObstacle(i) 
+            obstacles[i].removeObstacle(i)
         }
         obstacleCounter = 0 //Restart the counter
         screen2.setAttribute('class', 'hidden')
@@ -77,18 +90,19 @@ function createObstacle() { //Executed by intervales in the start function
         obstacles.push(obstacle)
         obstacle.insertObstacle()
 
-        obstacleCounter++ 
+        obstacleCounter++
         console.log(obstacleCounter)
     }
 }
 
 function createPintadera() {
     if (obstacleCounter === winCondition) {//When number of obstacles is equal to winCondition we create and insert the final door
-        const pintadera = new Pintadera(1020, 330, mainContainer, gofito) 
+        const pintadera = new Pintadera(1020, 330, mainContainer, gofito)
         pintadera.insertPintadera()
         console.log(pintadera)
 
         clearInterval(pintaderaTimer) //Clear interval in order not to create new 'pintaderas'
-    }
-}
 
+    }
+
+}
