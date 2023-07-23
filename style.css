@@ -28,7 +28,7 @@
     /* background-color: chocolate; */
 }
 
-/* Añado GIF de aloe provisional */
+/* AGIF aloe provisional */
 .aloe {
     background-image: url('./img/aloe-provisional.gif');
     background-size: contain;
@@ -40,13 +40,14 @@
 }
 
 #floor {
-    width: 100%;
+    width: 200%;
     height: 42px;
     position: absolute;
     bottom: 0;
     left: 0;
-    background: url('./img/floor.png')repeat-x 0px 0px;
+    background: url('./img/floor.png') repeat-x 0px 0px;
     background-size: 50% 42px;
+    background-repeat: repeat-x;
 }
 
 /* Pruebo ponerle un fondo a la pintadera de forma provisional*/

@@ -15,8 +15,8 @@ const startGame = document.getElementById('start-game')
 const restartGame = document.getElementById('restart')
 const mainContainer = document.querySelector('.game-board')
 
-const floor = document.querySelector('#floor') 
-let floorPosition =0;
+const floor = document.querySelector('#floor')
+let floorPosition = 0;
 
 //Create gofito
 const gofito = new Gofito(50, 364, mainContainer)
@@ -24,7 +24,7 @@ const gofito = new Gofito(50, 364, mainContainer)
 //We declare variables and constants in the global scope
 const obstacles = []
 let obstacleCounter = 0
-let winCondition = 3 //Modify to define the end of the game
+let winCondition = 8 //Modify to define the end of the game
 let obstacleTimer
 let pintaderaTimer
 let gofitoTimer
@@ -32,6 +32,8 @@ let gofitoTimer
 startGame.addEventListener('click', function () { //When we click START GAME...
     screen1.setAttribute('class', 'hidden')
     screen2.setAttribute('class', 'game-board')
+    clearGameIntervals()
+    clearObstacles()
     start()
     music.play() //Play music 
 })
@@ -39,19 +41,43 @@ startGame.addEventListener('click', function () { //When we click START GAME...
 restartGame.addEventListener('click', function () { //When we click RESTART...
     screen3.setAttribute('class', 'hidden')
     screen2.setAttribute('class', 'game-board')
-    gofito.isDead = false;
+    clearGameIntervals()
+    clearObstacles()
+    gofito.isDead = false
+    gofito.win = false
+    floorPosition = 0
+    floor.style.left = floorPosition + 'px'
     start()
 })
+
+function clearGameIntervals() {
+    clearInterval(gofitoTimer)
+    clearInterval(obstacleTimer)
+    clearInterval(pintaderaTimer)
+
+}
+
+function clearObstacles() {
+    for (let i = 0; i < obstacles.length; i++) {
+        clearInterval(obstacles[i].timerId);
+        obstacles[i].removeObstacle(i)
+    }
+    obstacleCounter = 0
+    obstacles.length = 0
+}
 
 function start() { //Sets the start of the game
     gofito.insertGofito()
 
-    function moveFloor(){ //Move the floor to make it look like Gofito is walking
-        floorPosition -=5
-        floor.style.left = floorPosition + 'px'
+    function moveFloor() { //Move the floor to make it look like Gofito is walking
+        floorPosition -= 5
+        if (floorPosition <= -1000) {
+            floorPosition = 0;
+        }
+        floor.style.left = floorPosition + 'px';
     }
-    setInterval (moveFloor,220)
-    
+    setInterval(moveFloor, 200)
+
 
     document.addEventListener('keydown', function (e) { //Event listener, so Gofito can jump when we keydown space
         if (e.key === ' ') gofito.jumping = true;
@@ -71,11 +97,7 @@ function gofitoCheckGameStatus() {
         gofito.isDead = false
         clearInterval(gofitoTimer)
         clearInterval(obstacleTimer)
-        for (let i = 0; i < obstacles.length; i++) {
-            clearInterval(obstacles[i].timerId);
-            obstacles[i].removeObstacle(i)
-        }
-        obstacleCounter = 0 //Restart the counter
+        clearObstacles()
         screen2.setAttribute('class', 'hidden')
         screen4.setAttribute('class', 'wrapper')
     }
@@ -83,10 +105,7 @@ function gofitoCheckGameStatus() {
     if (gofito.isDead) { //GAME OVER - clear intervales and obstacles
         clearInterval(gofitoTimer)
         clearInterval(obstacleTimer)
-        for (let i = 0; i < obstacles.length; i++) {
-            clearInterval(obstacles[i].timerId);
-            obstacles[i].removeObstacle(i)
-        }
+        clearObstacles()
         obstacleCounter = 0 //Restart the counter
         screen2.setAttribute('class', 'hidden')
         screen3.setAttribute('class', 'wrapper')
