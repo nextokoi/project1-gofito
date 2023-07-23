@@ -15,6 +15,9 @@ const startGame = document.getElementById('start-game')
 const restartGame = document.getElementById('restart')
 const mainContainer = document.querySelector('.game-board')
 
+const floor = document.querySelector('#floor') 
+let floorPosition =0;
+
 //Create gofito
 const gofito = new Gofito(50, 364, mainContainer)
 
@@ -42,6 +45,13 @@ restartGame.addEventListener('click', function () { //When we click RESTART...
 
 function start() { //Sets the start of the game
     gofito.insertGofito()
+
+    function moveFloor(){ //Move the floor to make it look like Gofito is walking
+        floorPosition -=5
+        floor.style.left = floorPosition + 'px'
+    }
+    setInterval (moveFloor,220)
+    
 
     document.addEventListener('keydown', function (e) { //Event listener, so Gofito can jump when we keydown space
         if (e.key === ' ') gofito.jumping = true;
@@ -85,7 +95,7 @@ function gofitoCheckGameStatus() {
 
 function createObstacle() { //Executed by intervales in the start function
     if (obstacleCounter < winCondition) { //Condition: number of obstacles less than the winCondition
-        const obstacle = new Obstacle(920, 390, mainContainer, obstacles, gofito)
+        const obstacle = new Obstacle(920, 400, mainContainer, obstacles, gofito)
         obstacles.push(obstacle)
         obstacle.insertObstacle()
 

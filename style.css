@@ -32,9 +32,10 @@
 .aloe {
     background-image: url('./img/aloe-provisional.gif');
     background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
-    width: 70px;
-    height: 90px;
+    width: 75px;
+    height: 100px;
     /* background-color: darkseagreen; */
 }
 
