@@ -3,7 +3,7 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
     this.x = x
     this.y = y
     this.width = 70
-    this.height = 70
+    this.height = 90
     this.speed = 30
     this.sprite = document.createElement('div') //This element represents the obstacles in the DOM
 

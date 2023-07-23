@@ -12,6 +12,12 @@ function Pintadera(x, y, parent, gofito) { //We create the constructor function 
         self.sprite.style.left = self.x + "px"
         self.sprite.style.top = self.y + "px"
         parent.appendChild(self.sprite)
+
+        // Create the div for the second GIF (gif-overlay) and add it as a child of the pintadera
+
+        const gifOverlay = document.createElement('div');
+        gifOverlay.classList.add('pintadera-overlay');
+        self.sprite.appendChild(gifOverlay);
     }
 
     this.movePintadera = function () { //Function to move it, just like obstacles
