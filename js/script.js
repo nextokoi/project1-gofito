@@ -1,7 +1,5 @@
-// INSERTAR AUDIO
-// var nombreVariable = new Audio('ruta del audio')
-// Por ejemplo:
-// var shoot = new Audio ('assets/sounds/shoot.mp3)
+// Insert audio
+var music = new Audio('../sounds/swingbee-sound.mp3')
 
 //Import the classes Gofito, Obstacle and Pintadera
 import { Gofito } from './gofito.js'
@@ -32,6 +30,7 @@ startGame.addEventListener('click', function () { //When we click START GAME...
     screen1.setAttribute('class', 'hidden')
     screen2.setAttribute('class', 'game-board')
     start()
+    music.play() //Play music 
 })
 
 restartGame.addEventListener('click', function () { //When we click RESTART...
