@@ -20,7 +20,7 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
         self.sprite.style.left = self.x + "px"; //Update the position on the screen
 
         if (self.x <= -75) { //Remove the obstacle when pass the end of the screen
-            self.removeObstacle()
+            self.removeObstacle(0)
         }
     }
 
@@ -28,11 +28,7 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
 
         clearInterval(this.timerId) //Stop the interval that moves the obstacles
 
-        if (this.x < -75) { //Delete the obstacles that are out of the screen
-            array.shift()
-        } else {
-            array.splice(index, 1) //Delete the obstacles that are in the screen
-        }
+        array.splice(index,1)
         parent.removeChild(this.sprite) //Remove from the DOM so we don't see them
     }
 

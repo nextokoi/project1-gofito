@@ -80,6 +80,17 @@
     justify-content: space-around;
 }
 
+section:nth-child(3){
+    display: flex;
+    justify-content: space-around;
+}
+
+section:nth-child(3) main{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 #content {
     display: flex;
     flex-direction: row-reverse;
@@ -134,7 +145,6 @@ button:hover {
 }
 
 /* Win screen */
-
 
 #screen-4.wrapper:not(.hidden) {
     display: flex;
