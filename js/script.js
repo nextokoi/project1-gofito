@@ -50,14 +50,14 @@ restartGame.addEventListener('click', function () { //When we click RESTART...
     start()
 })
 
-function clearGameIntervals() {
+function clearGameIntervals() { //Clear all intervals
     clearInterval(gofitoTimer)
     clearInterval(obstacleTimer)
     clearInterval(pintaderaTimer)
 
 }
 
-function clearObstacles() {
+function clearObstacles() { //Clear all obstacles
     for (let i = 0; i < obstacles.length; i++) {
         clearInterval(obstacles[i].timerId);
         obstacles[i].removeObstacle(i)
@@ -100,6 +100,7 @@ function gofitoCheckGameStatus() {
         clearObstacles()
         screen2.setAttribute('class', 'hidden')
         screen4.setAttribute('class', 'wrapper')
+        music.pause()
     }
 
     if (gofito.isDead) { //GAME OVER - clear intervales and obstacles
@@ -109,6 +110,7 @@ function gofitoCheckGameStatus() {
         obstacleCounter = 0 //Restart the counter
         screen2.setAttribute('class', 'hidden')
         screen3.setAttribute('class', 'wrapper')
+        music.pause()
     }
 }
 
