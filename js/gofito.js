@@ -2,11 +2,11 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
     let self = this //First of all...
     this.x = x
     this.y = y
-    this.width= 100
-    this.height= 100;
+    this.width= 80
+    this.height= 100
     this.floor = 364
-    this.impulse = 120
-    this.gravity = 0.3
+    this.impulse = 120 //120
+    this.gravity = 0.3 //0.3
     this.isDead= false
     this.win =false
     this.jumping = false
@@ -35,8 +35,8 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
             self.y = self.floor
             self.sprite.style.top = self.y + 'px';
             self.jumping = false;
-            self.impulse = 120
-            self.gravity = 0.3
+            self.impulse = 120 //120
+            self.gravity = 0.3 //0.3
         }   
     }
 }

@@ -2,13 +2,13 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
     let self = this //First of all...
     this.x = x
     this.y = y
-    this.width = 75
-    this.height = 100
+    this.width = 65
+    this.height = 95
     this.speed = 26
     this.sprite = document.createElement('div') //This element represents the obstacles in the DOM
 
     this.insertObstacle = function () { //Function to instert the obstacles in the DOM
-        this.sprite.classList.add('aloe')
+        this.sprite.classList.add('tunera')
         this.sprite.style.left = this.x + "px"
         this.sprite.style.top = this.y + "px"
         parent.appendChild(this.sprite)
