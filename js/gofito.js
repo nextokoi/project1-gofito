@@ -28,7 +28,7 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
             self.sprite.style.top = self.y + 'px'; //Update the position on the screen
 
         } else if (self.y <= self.floor) { //Gofito is moving down. Use self.floor to check that does not go lower than the floor
-            self.y += 35 //Icrease 'y' position to see Gofito going down
+            self.y += 35 //Increase 'y' position to see Gofito going down
             self.sprite.style.top = self.y + 'px'; //Update the position on the screen
 
         } else { //End of the jump, we reset to the initial position.

@@ -50,6 +50,7 @@ restartGame.addEventListener('click', function () { //When we click RESTART...
     floorPosition = 0
     floor.style.left = floorPosition + 'px'
     start()
+    music.play()
 })
 
 function clearGameIntervals() { //Clear all intervals
