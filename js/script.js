@@ -24,7 +24,7 @@ let floorPosition = 0;
 const gofito = new Gofito(50, 364, mainContainer)
 
 //We declare variables and constants in the global scope
-const obstacles = []
+let obstacles = []
 let obstacleCounter = 0
 let winCondition = 8 //Modify to define the end of the game
 let obstacleTimer
@@ -125,7 +125,6 @@ function createObstacle() { //Executed by intervales in the start function
         obstacle.insertObstacle()
 
         obstacleCounter++
-        console.log(obstacleCounter)
     }
 }
 
@@ -136,7 +135,6 @@ function createPintadera() {
         console.log(pintadera)
 
         clearInterval(pintaderaTimer) //Clear interval in order not to create new 'pintaderas'
-
     }
 
 }
