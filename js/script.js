@@ -2,6 +2,9 @@
 var music = new Audio('../sounds/coldplay.mp3')
 var musicGameOver = new Audio('../sounds/game-over.mp3')
 var musicWin = new Audio('../sounds/win.mp3')
+music.volume = 0.15;
+musicGameOver.volume = 0.15;
+musicWin.volume = 0.15;
 
 //Import the classes Gofito, Obstacle and Pintadera
 import { Gofito } from './gofito.js'
@@ -34,6 +37,8 @@ let obstacleTimer
 let pintaderaTimer
 let gofitoTimer
 
+/* Features */
+
 gofitoStanding.addEventListener('mouseover', function(){
     gofitoTongue.style.display = 'block';
     gofitoStanding.style.display = 'none';
@@ -43,6 +48,8 @@ gofitoTongue.addEventListener('mouseout', function(){
     gofitoTongue.style.display = 'none';
     gofitoStanding.style.display = 'block';
 })
+
+/* Game */
 
 startGame.addEventListener('click', function () { //When we click START GAME...
     screen1.setAttribute('class', 'hidden')

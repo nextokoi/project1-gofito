@@ -71,6 +71,10 @@ footer > div{
     position: relative;
 }
 
+#standing{
+    display: block;
+}
+
 #tongue{
     display: none;
 }
