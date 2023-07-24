@@ -20,6 +20,9 @@ const mainContainer = document.querySelector('.game-board')
 const floor = document.querySelector('#floor')
 let floorPosition = 0;
 
+const gofitoStanding = document.getElementById('standing');
+const gofitoTongue = document.getElementById('tongue');
+
 //Create gofito
 const gofito = new Gofito(50, 364, mainContainer)
 
@@ -30,6 +33,16 @@ let winCondition = 8 //Modify to define the end of the game
 let obstacleTimer
 let pintaderaTimer
 let gofitoTimer
+
+gofitoStanding.addEventListener('mouseover', function(){
+    gofitoTongue.style.display = 'block';
+    gofitoStanding.style.display = 'none';
+})
+
+gofitoTongue.addEventListener('mouseout', function(){
+    gofitoTongue.style.display = 'none';
+    gofitoStanding.style.display = 'block';
+})
 
 startGame.addEventListener('click', function () { //When we click START GAME...
     screen1.setAttribute('class', 'hidden')
