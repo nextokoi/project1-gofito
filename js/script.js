@@ -102,7 +102,7 @@ function gofitoCheckGameStatus() {
         clearInterval(obstacleTimer)
         clearObstacles()
         screen2.setAttribute('class', 'hidden')
-        screen4.setAttribute('class', 'wrapper')
+        screen4.setAttribute('class', 'wrapper game-win')
         music.pause()
         musicWin.play()
     }
@@ -113,7 +113,7 @@ function gofitoCheckGameStatus() {
         clearObstacles()
         obstacleCounter = 0 //Restart the counter
         screen2.setAttribute('class', 'hidden')
-        screen3.setAttribute('class', 'wrapper')
+        screen3.setAttribute('class', 'wrapper game-over')
         music.pause()
         musicGameOver.play()
     }
