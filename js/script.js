@@ -26,7 +26,7 @@ const gofito = new Gofito(50, 364, mainContainer)
 //We declare variables and constants in the global scope
 let obstacles = []
 let obstacleCounter = 0
-let winCondition = 8 //Modify to define the end of the game
+let winCondition = 1 //Modify to define the end of the game 8
 let obstacleTimer
 let pintaderaTimer
 let gofitoTimer
@@ -121,7 +121,7 @@ function gofitoCheckGameStatus() {
 
 function createObstacle() { //Executed by intervales in the start function
     if (obstacleCounter < winCondition) { //Condition: number of obstacles less than the winCondition
-        const obstacle = new Obstacle(920, 400, mainContainer, obstacles, gofito)
+        const obstacle = new Obstacle(920, 369, mainContainer, obstacles, gofito)
         obstacles.push(obstacle)
         obstacle.insertObstacle()
 
