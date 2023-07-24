@@ -15,7 +15,6 @@
     margin: 20px auto;
     width: 920px;
     height: 480px;
-    background-color: #44eab8;
     overflow: hidden;
 }
 
@@ -94,7 +93,9 @@
     margin: 20px auto;
     width: 920px;
     height: 480px;
-    background-color:  #44eab8;
+/*     background-color:  #44eab8; */
+    background-image: url('./img/island.png');
+    background-size: cover;
 }
 
 .main-screen {
@@ -110,8 +111,6 @@
 #history {
     text-align: center;
     margin: 5px;
-
-
 }
 
 button {
