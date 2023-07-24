@@ -1,5 +1,7 @@
 // Insert audio
 var music = new Audio('../sounds/coldplay.mp3')
+var musicGameOver = new Audio('../sounds/game-over.mp3')
+var musicWin = new Audio('../sounds/win.mp3')
 
 //Import the classes Gofito, Obstacle and Pintadera
 import { Gofito } from './gofito.js'
@@ -69,7 +71,7 @@ function clearObstacles() { //Clear all obstacles
 function start() { //Sets the start of the game
     gofito.insertGofito()
 
-    function moveFloor() { //Move the floor to make it look like Gofito is walking
+    function moveFloor() { //Move the floor to make it looks like Gofito is walking
         floorPosition -= 5
         if (floorPosition <= -1000) {
             floorPosition = 0;
@@ -101,6 +103,7 @@ function gofitoCheckGameStatus() {
         screen2.setAttribute('class', 'hidden')
         screen4.setAttribute('class', 'wrapper')
         music.pause()
+        musicWin.play()
     }
 
     if (gofito.isDead) { //GAME OVER - clear intervales and obstacles
@@ -111,6 +114,7 @@ function gofitoCheckGameStatus() {
         screen2.setAttribute('class', 'hidden')
         screen3.setAttribute('class', 'wrapper')
         music.pause()
+        musicGameOver.play()
     }
 }
 
