@@ -1,5 +1,5 @@
 // Insert audio
-var music = new Audio('../sounds/swingbee-sound.mp3')
+var music = new Audio('../sounds/coldplay.mp3')
 
 //Import the classes Gofito, Obstacle and Pintadera
 import { Gofito } from './gofito.js'
