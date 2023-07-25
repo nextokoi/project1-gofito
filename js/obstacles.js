@@ -41,6 +41,7 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
         ) {
             if (gofito.lives > 1 && gofito.invincible === false)  {
                 gofito.lives --
+                gofito.removeHearts()
                 gofito.invincible = true
                 setTimeout(function(){
                     gofito.invincible= false

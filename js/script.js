@@ -69,6 +69,7 @@ restartGame.addEventListener('click', function () { //When we click RESTART...
     gofito.isDead = false
     floorPosition = 0
     pintadera = undefined
+    gofito.resetHearts() //reset all hearts
     gofito.lives = 3
     gofito.invincible = false
     floor.style.left = floorPosition + 'px'
@@ -76,6 +77,7 @@ restartGame.addEventListener('click', function () { //When we click RESTART...
     musicGameOver.pause()
     musicWin.pause()
     music.play()
+    music.currentTime = 0 //The music starts from the beginning
 })
 
 function clearGameIntervals() { //Clear all intervals

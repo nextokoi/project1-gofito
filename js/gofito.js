@@ -2,23 +2,38 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
     let self = this //First of all...
     this.x = x
     this.y = y
-    this.width= 80
-    this.height= 100
+    this.width = 80
+    this.height = 100
     this.floor = 364
     this.impulse = 120 //120
     this.gravity = 0.3 //0.3
-    this.isDead= false
-    this.win =false
+    this.isDead = false
+    this.win = false
     this.lives = 3
     this.invincible = false
     this.jumping = false
-     this.sprite = document.createElement('div') //This element represents Gofito in the DOM
+    this.hearts = document.querySelectorAll('.heart');
+    this.sprite = document.createElement('div') //This element represents Gofito in the DOM
 
     this.insertGofito = function() { //Function to insert Gofito in the DOM
         this.sprite.setAttribute('id', 'gofito')
         this.sprite.style.left = this.x + 'px'
         this.sprite.style.top = this.y + 'px'
         parent.appendChild(this.sprite)
+    }
+
+    this.removeHearts = function(){
+        this.hearts.forEach(function(heart, index) {
+            if(index >= self.lives){
+                heart.src = "./../img/without-heart.png"
+            }
+        })
+    }
+
+    this.resetHearts = function(){
+        this.hearts.forEach(function(heart) {
+            heart.src = "./../img/heart.png"
+        })
     }
 
     this.jump = function() { // Function of Gofito's movement: jumping
