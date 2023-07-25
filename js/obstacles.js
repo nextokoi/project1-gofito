@@ -31,18 +31,27 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
         parent.removeChild(this.sprite) //Remove from the DOM so we don't see them
     }
 
-
     this.checkCollision = function () { //Function to check collisions
 
         if (this.x <= gofito.x + gofito.width &&
             this.x + this.width >= gofito.x &&
             this.y <= gofito.y + gofito.height &&
-            this.y + this.height >= gofito.y
-            ) {
+            this.y + this.height >= gofito.y 
+        
+        ) {
+            if (gofito.lives > 1 && gofito.invincible === false)  {
+                gofito.lives --
+                gofito.invincible = true
+                setTimeout(function(){
+                    gofito.invincible= false
+                },2000)
 
-            gofito.isDead = true //Gofito dies when collides with the obstacles
+            } else if (gofito.invincible === false){
+                gofito.isDead = true //Gofito dies when collides with the obstacles
+            }
+            console.log(gofito.lives)
+
         }
-
     }
 
     this.timerId = setInterval(this.move, 100);//Interval to move the obstacles

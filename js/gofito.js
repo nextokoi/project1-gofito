@@ -9,6 +9,8 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
     this.gravity = 0.3 //0.3
     this.isDead= false
     this.win =false
+    this.lives = 3
+    this.invincible = false
     this.jumping = false
      this.sprite = document.createElement('div') //This element represents Gofito in the DOM
 

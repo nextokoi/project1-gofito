@@ -69,6 +69,8 @@ restartGame.addEventListener('click', function () { //When we click RESTART...
     gofito.isDead = false
     floorPosition = 0
     pintadera = undefined
+    gofito.lives = 3
+    gofito.invincible = false
     floor.style.left = floorPosition + 'px'
     start()
     musicGameOver.pause()
