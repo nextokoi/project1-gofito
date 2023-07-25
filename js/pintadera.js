@@ -18,7 +18,6 @@ function Pintadera(x, y, parent, gofito) { //We create the constructor function 
         self.checkCollisionWin()
         self.x -= self.speed
         self.sprite.style.left = self.x + "px";
-
     }
 
     this.checkCollisionWin = function () { //Function to check collisions, just like obstacles
@@ -28,9 +27,6 @@ function Pintadera(x, y, parent, gofito) { //We create the constructor function 
             self.y + self.height >= gofito.y
         ) {
             gofito.win = true
-            // alert('Gofito has won!!') 
-            // screen2.setAttribute('class', 'hidden')
-            // screen4.setAttribute('class', 'wrapper')
         }
     }
     self.timerId = setInterval(self.movePintadera, 100); //Interval to move the 'pintadera'

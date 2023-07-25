@@ -32,19 +32,22 @@ const gofito = new Gofito(50, 364, mainContainer)
 //We declare variables and constants in the global scope
 let obstacles = []
 let obstacleCounter = 0
-let winCondition = 8 //Modify to define the end of the game 
+let winCondition = 3 //Modify to define the end of the game 
 let obstacleTimer
 let pintaderaTimer
 let gofitoTimer
 
+let pintadera
+
+
 /* Features */
 
-gofitoStanding.addEventListener('mouseover', function(){
+gofitoStanding.addEventListener('mouseover', function () {
     gofitoTongue.style.display = 'block';
     gofitoStanding.style.display = 'none';
 })
 
-gofitoTongue.addEventListener('mouseout', function(){
+gofitoTongue.addEventListener('mouseout', function () {
     gofitoTongue.style.display = 'none';
     gofitoStanding.style.display = 'block';
 })
@@ -63,11 +66,9 @@ startGame.addEventListener('click', function () { //When we click START GAME...
 restartGame.addEventListener('click', function () { //When we click RESTART...
     screen3.setAttribute('class', 'hidden')
     screen2.setAttribute('class', 'game-board')
-    clearGameIntervals()
-    clearObstacles()
     gofito.isDead = false
-    gofito.win = false
     floorPosition = 0
+    pintadera = undefined
     floor.style.left = floorPosition + 'px'
     start()
     musicGameOver.pause()
@@ -79,12 +80,10 @@ function clearGameIntervals() { //Clear all intervals
     clearInterval(gofitoTimer)
     clearInterval(obstacleTimer)
     clearInterval(pintaderaTimer)
-
 }
 
 function clearObstacles() { //Clear all obstacles
     for (let i = 0; i < obstacles.length; i++) {
-        // clearInterval(obstacles[i].timerId);
         obstacles[i].removeObstacle(i)
         i--
     }
@@ -112,6 +111,7 @@ function start() { //Sets the start of the game
     gofitoTimer = setInterval(gofitoCheckGameStatus, 100)
     obstacleTimer = setInterval(createObstacle, 2000)
     pintaderaTimer = setInterval(createPintadera, 2000)
+
 }
 
 function gofitoCheckGameStatus() {
@@ -121,8 +121,9 @@ function gofitoCheckGameStatus() {
 
     if (gofito.win === true) { //WIN - clear intervales and obstacles
         gofito.isDead = false
-        clearInterval(gofitoTimer)
-        clearInterval(obstacleTimer)
+        const pintaderaElement = document.querySelector('.pintadera');
+        pintaderaElement.remove();
+        clearGameIntervals()
         clearObstacles()
         screen2.setAttribute('class', 'hidden')
         screen4.setAttribute('class', 'wrapper game-win')
@@ -131,10 +132,15 @@ function gofitoCheckGameStatus() {
     }
 
     if (gofito.isDead) { //GAME OVER - clear intervales and obstacles
-        clearInterval(gofitoTimer)
-        clearInterval(obstacleTimer)
-        clearObstacles()
+        gofito.win = false
         obstacleCounter = 0 //Restart the counter
+        clearGameIntervals()
+        clearObstacles()
+        if (pintadera != undefined) {
+            clearInterval(pintadera.timerId)
+            mainContainer.removeChild(pintadera.sprite)
+
+        }
         screen2.setAttribute('class', 'hidden')
         screen3.setAttribute('class', 'wrapper game-over')
         music.pause()
@@ -148,19 +154,16 @@ function createObstacle() { //Executed by intervales in the start function
         const obstacle = new Obstacle(920, 369, mainContainer, obstacles, gofito)
         obstacles.push(obstacle)
         obstacle.insertObstacle()
-
         obstacleCounter++
-
     }
 }
 
 function createPintadera() {
     if (obstacleCounter === winCondition) {//When number of obstacles is equal to winCondition we create and insert the final door
-        const pintadera = new Pintadera(1020, 330, mainContainer, gofito)
+        pintadera = new Pintadera(1020, 330, mainContainer, gofito)
         pintadera.insertPintadera()
         console.log(pintadera)
 
         clearInterval(pintaderaTimer) //Clear interval in order not to create new 'pintaderas'
     }
-
 }
