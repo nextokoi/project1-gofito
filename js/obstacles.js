@@ -37,19 +37,12 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
         if (this.x <= gofito.x + gofito.width &&
             this.x + this.width >= gofito.x &&
             this.y <= gofito.y + gofito.height &&
-            this.y + this.height >= gofito.y &&
-            // gofito.invisible == false
-        ) {
+            this.y + this.height >= gofito.y
+            ) {
 
+            gofito.isDead = true //Gofito dies when collides with the obstacles
+        }
 
-            // if (gofito.lives > 0) {
-            //     gofito.lives --
-            // } else {
-                gofito.isDead = true //Gofito dies when collides with the obstacles
-            }
-            // console.log(gofito.lives)
-
-        // }
     }
 
     this.timerId = setInterval(this.move, 100);//Interval to move the obstacles
