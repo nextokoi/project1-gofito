@@ -70,6 +70,8 @@ restartGame.addEventListener('click', function () { //When we click RESTART...
     floorPosition = 0
     floor.style.left = floorPosition + 'px'
     start()
+    musicGameOver.pause()
+    musicWin.pause()
     music.play()
 })
 
@@ -84,6 +86,7 @@ function clearObstacles() { //Clear all obstacles
     for (let i = 0; i < obstacles.length; i++) {
         // clearInterval(obstacles[i].timerId);
         obstacles[i].removeObstacle(i)
+        i--
     }
     obstacleCounter = 0
     obstacles = []
