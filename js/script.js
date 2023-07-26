@@ -1,7 +1,7 @@
 // Insert audio
-var music = new Audio('/sounds/coldplay.mp3')
-var musicGameOver = new Audio('/sounds/game-over.mp3')
-var musicWin = new Audio('/sounds/win.mp3')
+var music = new Audio('./sounds/coldplay.mp3')
+var musicGameOver = new Audio('./sounds/game-over.mp3')
+var musicWin = new Audio('./sounds/win.mp3')
 music.volume = 0.15;
 musicGameOver.volume = 0.15;
 musicWin.volume = 0.15;
