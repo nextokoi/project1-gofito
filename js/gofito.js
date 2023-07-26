@@ -25,14 +25,14 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
     this.removeHearts = function(){
         this.hearts.forEach(function(heart, index) {
             if(index >= self.lives){
-                heart.src = "./../img/without-heart.png"
+                heart.src = "/img/without-heart.png"
             }
         })
     }
 
     this.resetHearts = function(){
         this.hearts.forEach(function(heart) {
-            heart.src = "./../img/heart.png"
+            heart.src = "/img/heart.png"
         })
     }
 
