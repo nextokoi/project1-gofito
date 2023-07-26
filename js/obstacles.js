@@ -27,7 +27,7 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
     this.removeObstacle = function (index) { //Function to remove them
 
         clearInterval(this.timerId) //Stop the interval that moves the obstacles
-        array.splice(index, 1)
+        array.splice(index, 1) //Remove from array
         parent.removeChild(this.sprite) //Remove from the DOM so we don't see them
     }
 
@@ -39,16 +39,16 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
             this.y + this.height >= gofito.y 
         
         ) {
-            if (gofito.lives > 1 && gofito.invincible === false)  {
+            if (gofito.lives > 1 && gofito.invincible === false)  { //Gofito loses a life with every collision
                 gofito.lives --
-                gofito.removeHearts()
+                gofito.removeHearts() 
                 gofito.invincible = true
-                setTimeout(function(){
+                setTimeout(function(){ //To pass the obstacle it has already collided with
                     gofito.invincible= false
                 },2000)
 
-            } else if (gofito.invincible === false){
-                gofito.isDead = true //Gofito dies when collides with the obstacles
+            } else if (gofito.invincible === false){ //Gofito dies when collides 
+                gofito.isDead = true 
             }
             console.log(gofito.lives)
 

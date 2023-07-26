@@ -5,14 +5,14 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
     this.width = 80
     this.height = 100
     this.floor = 364
-    this.impulse = 120 //120
-    this.gravity = 0.3 //0.3
+    this.impulse = 120 
+    this.gravity = 0.3 
     this.isDead = false
     this.win = false
     this.lives = 3
     this.invincible = false
     this.jumping = false
-    this.hearts = document.querySelectorAll('.heart');
+    this.hearts = document.querySelectorAll('.heart'); 
     this.sprite = document.createElement('div') //This element represents Gofito in the DOM
 
     this.insertGofito = function() { //Function to insert Gofito in the DOM
@@ -52,8 +52,8 @@ function Gofito(x, y, parent){ //We create the constructor function of Gofito
             self.y = self.floor
             self.sprite.style.top = self.y + 'px';
             self.jumping = false;
-            self.impulse = 120 //120
-            self.gravity = 0.3 //0.3
+            self.impulse = 120 
+            self.gravity = 0.3 
         }   
     }
 }

@@ -32,11 +32,10 @@ const gofito = new Gofito(50, 364, mainContainer)
 //We declare variables and constants in the global scope
 let obstacles = []
 let obstacleCounter = 0
-let winCondition = 3 //Modify to define the end of the game 
+let winCondition = 5 //Modify to define the end of the game 
 let obstacleTimer
 let pintaderaTimer
 let gofitoTimer
-
 let pintadera
 
 
@@ -57,8 +56,6 @@ gofitoTongue.addEventListener('mouseout', function () {
 startGame.addEventListener('click', function () { //When we click START GAME...
     screen1.setAttribute('class', 'hidden')
     screen2.setAttribute('class', 'game-board')
-    clearGameIntervals()
-    clearObstacles()
     start()
     music.play() //Play music 
 })
@@ -107,7 +104,6 @@ function start() { //Sets the start of the game
     }
     setInterval(moveFloor, 200)
 
-
     document.addEventListener('keydown', function (e) { //Event listener, so Gofito can jump when we keydown space
         if (e.key === ' ') gofito.jumping = true;
     });
@@ -115,7 +111,6 @@ function start() { //Sets the start of the game
     gofitoTimer = setInterval(gofitoCheckGameStatus, 100)
     obstacleTimer = setInterval(createObstacle, 2000)
     pintaderaTimer = setInterval(createPintadera, 2000)
-
 }
 
 function gofitoCheckGameStatus() {
@@ -143,7 +138,6 @@ function gofitoCheckGameStatus() {
         if (pintadera != undefined) {
             clearInterval(pintadera.timerId)
             mainContainer.removeChild(pintadera.sprite)
-
         }
         screen2.setAttribute('class', 'hidden')
         screen3.setAttribute('class', 'wrapper game-over')
