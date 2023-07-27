@@ -147,7 +147,6 @@ function gofitoCheckGameStatus() {
 }
 
 function createObstacle() { //Executed by intervales in the start function
-    console.log(obstacles)
     if (obstacleCounter < winCondition) { //Condition: number of obstacles less than the winCondition
         const obstacle = new Obstacle(920, 369, mainContainer, obstacles, gofito)
         obstacles.push(obstacle)
@@ -160,8 +159,6 @@ function createPintadera() {
     if (obstacleCounter === winCondition) {//When number of obstacles is equal to winCondition we create and insert the final door
         pintadera = new Pintadera(1020, 330, mainContainer, gofito)
         pintadera.insertPintadera()
-        console.log(pintadera)
-
         clearInterval(pintaderaTimer) //Clear interval in order not to create new 'pintaderas'
     }
 }

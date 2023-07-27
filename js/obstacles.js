@@ -36,22 +36,20 @@ function Obstacle(x, y, parent, array, gofito) { //We create the constructor fun
         if (this.x <= gofito.x + gofito.width &&
             this.x + this.width >= gofito.x &&
             this.y <= gofito.y + gofito.height &&
-            this.y + this.height >= gofito.y 
-        
+            this.y + this.height >= gofito.y
+
         ) {
-            if (gofito.lives > 1 && gofito.invincible === false)  { //Gofito loses a life with every collision
-                gofito.lives --
-                gofito.removeHearts() 
+            if (gofito.lives > 1 && gofito.invincible === false) { //Gofito loses a life with every collision
+                gofito.lives--
+                gofito.removeHearts()
                 gofito.invincible = true
-                setTimeout(function(){ //To pass the obstacle it has already collided with
-                    gofito.invincible= false
-                },2000)
+                setTimeout(function () { //To pass the obstacle it has already collided with
+                    gofito.invincible = false
+                }, 2000)
 
-            } else if (gofito.invincible === false){ //Gofito dies when collides 
-                gofito.isDead = true 
+            } else if (gofito.invincible === false) { //Gofito dies when collides 
+                gofito.isDead = true
             }
-            console.log(gofito.lives)
-
         }
     }
 
